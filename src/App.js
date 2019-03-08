@@ -1,11 +1,14 @@
 import React from 'react';
+import { Provider } from 'react-redux';
+
+import store from './store';
+
+import Componente from './Componente';
 
 const App = () => (
-  <div className="App">
-    <h1>Hello World!</h1>
-  </div>
+  <Provider store={store}>
+    <Componente />
+  </Provider>
 );
-
-// comment
 
 export default App;
