@@ -1,6 +1,6 @@
 # React com Redux, a Checklist
 
-Durante as aulas do bootcamp da RocketSeat que estou participando, lembrei de um livro que lí a alguns meses, **The Checklist Manifesto**, em que são relatados casos onde o simples uso rotineiro de uma lista de ações a serem executadas resultou em ganhos significativos de performance, eficiência e segurânça, de pilotos a cirurgiões, ter uma ordem de coisas a serem feitas pode ajudar muito a garantir que o resultado seja o esperado.
+Durante as aulas do bootcamp da RocketSeat que estou participando, lembrei de um livro que li a alguns meses, **The Checklist Manifesto**, em que são relatados casos onde o simples uso rotineiro de uma lista de ações a serem executadas resultou em ganhos significativos de performance, eficiência e segurânça, de pilotos a cirurgiões, ter uma ordem de coisas a serem feitas pode ajudar muito a garantir que o resultado seja o esperado.
 
 Uma das partes mais difíceis, senão a mais difícil, para a maioria dos novatos em React é entender o manejo de **estado**, onde as informações relevantes a sua página ou aplicação estão armazenadas e como distrubuir para todos componentes que precisam de acesso.
 
