@@ -271,6 +271,8 @@ export const novoTexto = texto => ({
 
 As **actions** são manejadas por redutores, **reducers** sendo um reducer responsável por uma parte do **store**, podendo usar um para controlar a parte de autenticação do estado, outro pra lista de produtos etc.
 
+Um detalhe importante, a estrutura interna do estado da store, depende dos reducers que você tem, se tiver um reducer chamando **users** e outro chamado **posts**, cada um em seu arquivo, sendo combinado pelo combineReducers(), a estrutura do estado seria `state: { users: { ... } , posts: { ... }}`, então para acessar os **users** ao mapear para os props de um componente, usa-se `users: state.users`.
+
 Quando uma ação é enviada pelo componente, **todos os reducers ouvem todas as actions**, mas cada **reducer** tem um tipo, **type** ({type:'ADD_TODO'} por exemplo), definido e a partir desse **type** que vem junto da ação o reducer pode filtrar e executar somente as ações relevantes a ele. Dentro de um switch no **reducer** conseguimos filtrar somente as suas ações:
 
 ```javascript
