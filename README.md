@@ -56,7 +56,7 @@ export default store;
 
 - No App.js da aplicação, crie uma tag que encapsula a aplicação usando o **Provider** do react-redux e passando a store criada:
 
-```
+```javascript
 import React from 'react';
 import { Provider } from 'react-redux';
 
@@ -74,7 +74,7 @@ export default App;
 
 - Crie uma pasta reducers dentro da store, nela ficarão todos reducers individuais:
 
-```
+```javascript
 const VALOR_INICIAL = [
   // aqui você inicia o estado com os valores padrões iniciais que precisar
 ];
@@ -89,7 +89,7 @@ export default function primeiroReducer(state = VALOR_INICIAL, action) {
 
 - Crie na pasta "src/reducers" um index.js que será responsável por combinar todos reducers da aplicação:
 
-```
+```javascript
 import { combineReducers } from 'redux';
 
 import primeiroReducer from './primeiroReducer';
@@ -103,10 +103,10 @@ export default combineReducers({
 
 - No index da **store**, importe os reducers criados no combinador de reducers (src/reducers/index.js):
 
-```
+```javascript
 import { createStore } from 'redux';
 
-import reducers from ' ./reducers';
+import reducers from './reducers';
 
 const store = createStore(
   reducers
@@ -117,7 +117,7 @@ export default store;
 
 - Para um componente pode acessar o estado na store, conecte através do método **connect()** do react-redux
 
-```
+```javascript
 import React from 'react';
 import { connect } from 'react-redux';
 
@@ -129,7 +129,7 @@ export default connect()(Componente); //<<<
 
 - Mapeie os dados desejados do estado para as propriedades (props) do componente local:
 
-```
+```javascript
 const mapStateToProps = state => {
   return {
     texto: state.primeiroReducer,
@@ -140,7 +140,7 @@ const mapStateToProps = state => {
 
 - Acesse os dados vindos do store que agora estão nas propriedades do Componente:
 
-```
+```html
 <h1>Texto vindo do state na store: {props.texto} </h1>;
 ```
 
@@ -152,7 +152,7 @@ const mapStateToProps = state => {
 
 - Para manipular o estado da store, envie ações, **actions**, que serão ouvidas pelo **reducer** correto baseado no **type** da ação passada, crie um arquivo '/src/actions/novoTexto' contendo a action de exemplo:
 
-```
+```javascript
 export const novoTexto = text => ({
   type: 'ADD_TEXT',
   payload: { texto },
@@ -161,7 +161,7 @@ export const novoTexto = text => ({
 
 - Através do método **bindActionCreators()** do Redux, mapeie as ações criadas para ficarem disponíveis nos props do componente:
 
-```
+```javascript
 ...
 import * as ExampleActions from './store/actions/exampleActions';
 import { bindActionCreators } from 'redux';
@@ -174,7 +174,7 @@ const mapDispatchToProps = dispatch =>
 
 - Adicione um botão que cria uma nova entrada no estado:
 
-```
+```javascript
  <button onClick={() => props.novoTexto('Novo texto vindo da Action')}>
     Adicionar texto
   </button>
@@ -188,7 +188,7 @@ const mapDispatchToProps = dispatch =>
 
 - Adicione um segundo reducer:
 
-```
+```javascript
 const VALOR_INICIAL = [
   { id: 1, texto: 'Primeiro Objeto vindo do estado da store' },
   { id: 2, texto: 'Segundo Objeto vindo do estado da store' },
@@ -204,7 +204,7 @@ export default function segundoReducer(state = VALOR_INICIAL, action) {
 
 - Adicione o segundo reducer ao combinador de reducers:
 
-```
+```javascript
 import { combineReducers } from 'redux';
 
 import primeiroReducer from './primeiroReducer';
@@ -218,7 +218,7 @@ export default combineReducers({
 
 - Todos os dados de estado relacionados a esse reducer também estarão acessíveis pelo connect(), mapeie os dados do estado da store pro props do componente:
 
-```
+```javascript
 const mapStateToProps = state => {
   return {
     texto: state.primeiroReducer,
@@ -229,7 +229,7 @@ const mapStateToProps = state => {
 
 - Acesse os dados no componente usando a variável dentro dos props ("objetos") a qual o estado foi mapeado:
 
-```
+```javascript
 const Componente = props => {
   console.log(props);
   return (
@@ -256,13 +256,13 @@ const Componente = props => {
 
 Movemos o estado da aplicação de dentro de um componente específico para um "depósito", **store**, onde ficará _qualquer estado que mais de um componente precisará ter acesso na aplicação_. Tendo um local onde todos componentes podem buscar e salvar as informações desejadas ajuda muito a distribuir a informação através da aplicação, evitando ter de passar cada parte do estado para cada componente, agilizando o desenvolvimento e manutenção do código do programa.
 
-```
+```javascript
 const store = createStore(reducers);
 ```
 
 Para acessar ou manipular qualquer dado do estado no Store, precisamos passar **actions**, que **sempre contém um type** e um "pacote", **payload** que contém a informação a ser enviada para o estado dentro da store.
 
-```
+```javascript
 export const novoTexto = texto => ({
   type: 'ADD_TEXT',
   payload: { texto },
@@ -273,7 +273,7 @@ As **actions** são manejadas por redutores, **reducers** sendo um reducer respo
 
 Quando uma ação é enviada pelo componente, **todos os reducers ouvem todas as actions**, mas cada **reducer** tem um tipo, **type** ({type:'ADD_TODO'} por exemplo), definido e a partir desse **type** que vem junto da ação o reducer pode filtrar e executar somente as ações relevantes a ele. Dentro de um switch no **reducer** conseguimos filtrar somente as suas ações:
 
-```
+```javascript
 export default function segundoReducer(state = VALOR_INICIAL, action) {
   switch (action.type) {
     case 'ADD_TEXT':
@@ -297,7 +297,7 @@ Isso é feito através do métodos **connect()** do Redux, cada componente que p
 
 Assim o componente tem acesso ao estado, podendo modificar e ler uma informação que agora está disponível no seu **props**:
 
-```
+```javascript
 <h1>{props.text}</h1>
 ```
 
