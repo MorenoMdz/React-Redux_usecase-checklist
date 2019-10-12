@@ -332,6 +332,7 @@ OBS: Se configurar um props como `isRequired` não é preciso setar um valor `de
 #### Redux DevTools
 
 https://github.com/zalmoxisus/redux-devtools-extension#usage
+
 ---
 
 ### Fontes
