@@ -323,6 +323,6 @@ Assim que algo for atualizado no estado dentro da store, o componente atualiza a
 
 ---
 
-[Redux](https://redux.js.org/basics/reducers)
-[React-Redux](https://react-redux.js.org/api/provider)
+[Redux](https://redux.js.org/basics/reducers)|| 
+[React-Redux](https://react-redux.js.org/api/provider)||
 [The Checklist Manifesto](https://www.audible.com/pd/The-Checklist-Manifesto-Audiobook/B0030ZYDD2)
