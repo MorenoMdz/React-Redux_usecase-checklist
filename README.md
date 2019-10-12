@@ -319,6 +319,16 @@ Assim que algo for atualizado no estado dentro da store, o componente atualiza a
 
 ---
 
+### PropTypes
+
+---
+
+https://reactjs.org/docs/typechecking-with-proptypes.html
+
+OBS: Se configurar um props como `isRequired` não é preciso setar um valor `defaultProps`.
+
+---
+
 ### Fontes
 
 ---
