@@ -319,14 +319,19 @@ Assim que algo for atualizado no estado dentro da store, o componente atualiza a
 
 ---
 
-### PropTypes
+### Extra
 
 ---
+
+#### PropTypes
 
 https://reactjs.org/docs/typechecking-with-proptypes.html
 
 OBS: Se configurar um props como `isRequired` não é preciso setar um valor `defaultProps`.
 
+#### Redux DevTools
+
+https://github.com/zalmoxisus/redux-devtools-extension#usage
 ---
 
 ### Fontes
